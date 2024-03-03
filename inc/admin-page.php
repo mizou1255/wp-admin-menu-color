@@ -35,25 +35,8 @@ function display_wpacm_options_page() {
             <form method="post" action="options.php" class="wpacm__form">
                 <input type="hidden" id="nonce" name="nonce" value="<?php echo wp_create_nonce( 'wpacm_nonce' ); ?>">
                 <div class="wpacm_tabs">
-                    <input type="radio" class="wpacm_tabs__button" name="signForm" id="signIn" checked />
-                    <label class="wpacm_tabs__text" for="signIn"><?php esc_attr_e('Global Colors', 'wp-admin-menu-color'); ?></label>
-                    <div class="wpacm_tabs__content">
-                        <?php
-                            $sidebar_color = get_option('sidebar_color'); 
-                            $adminbar_color = get_option('adminbar_color'); 
-                        ?>
-                        <div class="wpacm_color_field">
-                            <label for="sidebar-color"> <?php esc_attr_e('BgColor Admin SideBar', 'wp-admin-menu-color'); ?>:</label>
-                            <input type="text" id="sidebar_color" class="wpacm-color-field" name="sidebar-color" value="<?php echo esc_attr($sidebar_color); ?>" />
-                        </div>
-                        <div class="wpacm_color_field">
-                            <label for="adminbar-color"> <?php esc_attr_e('BgColor Admin Bar', 'wp-admin-menu-color'); ?>:</label>
-                            <input type="text" id="adminbar_color" class="wpacm-color-field" name="adminbar-color" value="<?php echo esc_attr($adminbar_color); ?>" />
-                        </div>
-                    </div>
-
-                    <input type="radio" class="wpacm_tabs__button" name="signForm" id="signUp" />
-                    <label class="wpacm_tabs__text" for="signUp"><?php esc_attr_e('Individual Colors', 'wp-admin-menu-color'); ?></label>
+                    <input type="radio" class="wpacm_tabs__button" name="tabs_radio" id="induvidual" checked/>
+                    <label class="wpacm_tabs__text" for="induvidual"><?php esc_attr_e('Individual Colors', 'wp-admin-menu-color'); ?></label>
                     <div class="wpacm_tabs__content">
                         <?php
                         $menu_colors = get_option('menu_colors_option');
@@ -76,6 +59,23 @@ function display_wpacm_options_page() {
                             <?php
                         }
                         ?>
+                    </div>
+
+                    <input type="radio" class="wpacm_tabs__button" name="tabs_radio" id="global" />
+                    <label class="wpacm_tabs__text" for="global"><?php esc_attr_e('Global Colors', 'wp-admin-menu-color'); ?></label>
+                    <div class="wpacm_tabs__content">
+                        <?php
+                            $sidebar_color = get_option('sidebar_color'); 
+                            $adminbar_color = get_option('adminbar_color'); 
+                        ?>
+                        <div class="wpacm_color_field">
+                            <label for="sidebar-color"> <?php esc_attr_e('BgColor Admin SideBar', 'wp-admin-menu-color'); ?>:</label>
+                            <input type="text" id="sidebar_color" class="wpacm-color-field" name="sidebar-color" value="<?php echo esc_attr($sidebar_color); ?>" />
+                        </div>
+                        <div class="wpacm_color_field">
+                            <label for="adminbar-color"> <?php esc_attr_e('BgColor Admin Bar', 'wp-admin-menu-color'); ?>:</label>
+                            <input type="text" id="adminbar_color" class="wpacm-color-field" name="adminbar-color" value="<?php echo esc_attr($adminbar_color); ?>" />
+                        </div>
                     </div>
                 </div>
             </form>
